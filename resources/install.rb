@@ -342,7 +342,7 @@ action :install do
 
   new_resource.modules.each do |mod|
     apache2_module mod do
-      mod_conf new_resource.mod_conf[mod.to_sym]
+      mod_conf new_resource.mod_conf || new_resource.mod_conf[mod.to_sym]
     end
   end
 
